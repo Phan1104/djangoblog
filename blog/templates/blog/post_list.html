@@ -1,0 +1,265 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>DjangoBlog</title>
+
+   <link rel="stylesheet"
+      href="{% static 'blog/css/style.css' %}">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="site-header">
+
+    <div class="header-container">
+
+        <a href="{% url 'post_list' %}"
+           class="site-title">
+            DjangoBlog
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="container">
+
+
+    <!-- =========================
+         POSTS
+    ========================= -->
+
+    <section class="posts-section">
+
+
+        <div class="posts-grid">
+
+
+            {% for post in object_list %}
+
+
+            <article class="post-card">
+
+
+                <div class="post-card-body">
+
+
+                    <!-- CATEGORY -->
+
+                    {% if post.category %}
+
+                        <div class="post-category">
+                            {{ post.category.name }}
+                        </div>
+
+                    {% endif %}
+
+
+
+                    <!-- TITLE -->
+
+                    <h2 class="post-title">
+
+                        {{ post.title }}
+
+                    </h2>
+
+
+
+                    <!-- CONTENT -->
+
+                    <p class="post-excerpt">
+
+                        {{ post.content|truncatewords:25 }}
+
+                    </p>
+
+
+
+                    <!-- DATE -->
+
+                    <div class="post-date">
+
+                        {{ post.created_at|date:"Y-m-d" }}
+
+                    </div>
+
+
+
+                    <!-- BUTTON -->
+
+                    <a href="{% url 'post_detail' post.slug %}"
+                       class="read-more">
+
+                        Read more
+
+                    </a>
+
+
+                </div>
+
+
+            </article>
+
+
+            {% empty %}
+
+
+            <div class="no-posts">
+
+                <h2>No posts found.</h2>
+
+                <p>
+                    There are currently no published posts.
+                </p>
+
+            </div>
+
+
+            {% endfor %}
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         PAGINATION
+    ========================= -->
+
+    {% if is_paginated %}
+
+    <div class="pagination">
+
+
+        {% if page_obj.has_previous %}
+
+            <a href="?page={{ page_obj.previous_page_number }}"
+               class="page-button">
+
+                Previous
+
+            </a>
+
+        {% endif %}
+
+
+
+        <span class="page-info">
+
+            Page {{ page_obj.number }}
+            of
+            {{ page_obj.paginator.num_pages }}
+
+        </span>
+
+
+
+        {% if page_obj.has_next %}
+
+            <a href="?page={{ page_obj.next_page_number }}"
+               class="page-button">
+
+                Next
+
+            </a>
+
+        {% endif %}
+
+
+    </div>
+
+    {% endif %}
+
+
+
+    <!-- =========================
+         CATEGORIES
+    ========================= -->
+
+    <section class="categories-section">
+
+        <h2 class="categories-title">
+            Categories
+        </h2>
+
+
+        <div class="categories-list">
+
+
+            {% for post in object_list %}
+
+                {% if post.category %}
+
+                    <a href="#"
+                       class="category-link">
+
+                        {{ post.category.name }}
+
+                    </a>
+
+                {% endif %}
+
+            {% empty %}
+
+                <span class="category-empty">
+                    No categories.
+                </span>
+
+            {% endfor %}
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <p>
+            © 2026 DjangoBlog
+        </p>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

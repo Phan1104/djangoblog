@@ -1,0 +1,41 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+Contact - Django Blog
+{% endblock %}
+
+{% block content %}
+
+<h1>Contact</h1>
+
+<p>Nếu bạn muốn liên hệ với tôi, hãy gửi thông tin bên dưới.</p>
+
+<form method="post">
+    {% csrf_token %}
+
+    <div>
+        <label>Họ và tên</label>
+        <input type="text" name="name" placeholder="Nhập họ tên">
+    </div>
+
+    <br>
+
+    <div>
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Nhập email">
+    </div>
+
+    <br>
+
+    <div>
+        <label>Nội dung</label>
+        <textarea name="message" rows="5"
+                  placeholder="Nhập nội dung"></textarea>
+    </div>
+
+    <br>
+
+    <button type="submit">Gửi</button>
+</form>
+
+{% endblock %}

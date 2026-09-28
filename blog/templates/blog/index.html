@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DjangoBlog</title>
+
+    <link rel="stylesheet"
+      href="{% static 'blog/css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <h1>DjangoBlog</h1>
+        </div>
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="container">
+
+        <!-- POSTS -->
+        <section class="posts">
+
+            {% for post in posts %}
+
+            <article class="post-card">
+
+                <div class="post-content">
+
+                    <h2>
+                        {{ post.title }}
+                    </h2>
+
+                    <p>
+                        {{ post.content|truncatewords:20 }}
+                    </p>
+
+                    <a
+                        href="{% url 'post_detail' post.slug %}"
+                        class="read-more"
+                    >
+                        Read more
+                    </a>
+
+                </div>
+
+            </article>
+
+            {% empty %}
+
+            <p>No posts available.</p>
+
+            {% endfor %}
+
+        </section>
+
+
+        <!-- PAGINATION -->
+        <div class="pagination">
+
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">
+                    Previous
+                </a>
+            {% endif %}
+
+            <span>
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">
+                    Next
+                </a>
+            {% endif %}
+
+        </div>
+
+
+        <!-- CATEGORIES -->
+        <section class="categories">
+
+            <h2>Categories</h2>
+
+            {% for category in categories %}
+
+                <a href="#">
+                    {{ category.name }}
+                </a>
+
+            {% empty %}
+
+                <p>No categories.</p>
+
+            {% endfor %}
+
+        </section>
+
+    </main>
+
+</body>
+</html>

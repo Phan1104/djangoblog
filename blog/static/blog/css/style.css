@@ -1,0 +1,1678 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+    background: linear-gradient(
+        135deg,
+        #182126,
+        #26343a
+    );
+
+    min-height: 68px;
+
+    display: flex;
+    align-items: center;
+
+    box-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.18);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-inner {
+    width: 1200px;
+    max-width: 92%;
+
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.site-logo {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 23px;
+
+    font-weight: 700;
+
+    letter-spacing: .3px;
+
+    transition: .25s;
+}
+
+.site-logo:hover {
+    opacity: .8;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.site-nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.site-nav a {
+    color: #dce2e5;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    padding: 9px 13px;
+
+    border-radius: 6px;
+
+    transition: all .25s ease;
+}
+
+.site-nav a:hover {
+    color: white;
+
+    background: rgba(255,255,255,.1);
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container {
+    width: 1200px;
+
+    max-width: 92%;
+
+    margin: 45px auto;
+}
+
+
+/* =========================================================
+   PAGE TITLE
+========================================================= */
+
+.page-title {
+    margin-bottom: 32px;
+}
+
+.page-title h1 {
+    font-size: 34px;
+
+    line-height: 1.2;
+
+    color: #1d272c;
+
+    margin-bottom: 8px;
+}
+
+.page-title p {
+    color: #7b858b;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.home-layout {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 280px;
+
+    gap: 28px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   POSTS GRID
+========================================================= */
+
+.post-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   POST CARD
+========================================================= */
+
+.post-card {
+    background: #fff;
+
+    border: 1px solid #e2e6e9;
+
+    border-radius: 12px;
+
+    padding: 23px;
+
+    min-height: 285px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.04);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
+
+
+/* TOP ACCENT */
+
+.post-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: #2869e8;
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: transform .3s ease;
+}
+
+
+/* HOVER */
+
+.post-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #d4dce3;
+
+    box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.10);
+}
+
+.post-card:hover::before {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.post-category {
+    display: inline-flex;
+
+    width: fit-content;
+
+    align-items: center;
+
+    background: #edf4ff;
+
+    color: #2869e8;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: .4px;
+
+    text-transform: uppercase;
+
+    padding: 6px 11px;
+
+    border-radius: 30px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   POST TITLE
+========================================================= */
+
+.post-card h2 {
+    color: #1d272c;
+
+    font-size: 20px;
+
+    line-height: 1.4;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   POST CONTENT
+========================================================= */
+
+.post-excerpt {
+    color: #69747a;
+
+    font-size: 14px;
+
+    line-height: 1.75;
+
+    margin-bottom: 15px;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 3;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   POST META
+========================================================= */
+
+.post-meta {
+    margin-top: auto;
+
+    padding-top: 14px;
+
+    margin-bottom: 15px;
+
+    border-top: 1px solid #edf0f2;
+
+    color: #929ba0;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   READ MORE BUTTON
+========================================================= */
+
+.read-more {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: fit-content;
+
+    background: #2869e8;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 9px 17px;
+
+    border-radius: 6px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 4px 10px rgba(40, 105, 232, .18);
+
+    transition:
+        background .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.read-more:hover {
+    background: #1857cf;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 15px rgba(40, 105, 232, .25);
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+    background: white;
+
+    border: 1px solid #e2e6e9;
+
+    border-radius: 12px;
+
+    padding: 23px;
+
+    height: fit-content;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.04);
+
+    position: sticky;
+
+    top: 95px;
+}
+
+.sidebar h3 {
+    color: #1d272c;
+
+    font-size: 20px;
+
+    margin-bottom: 18px;
+
+    padding-bottom: 13px;
+
+    border-bottom: 1px solid #edf0f2;
+}
+
+
+/* =========================================================
+   CATEGORY LIST
+========================================================= */
+
+.category-list {
+    list-style: none;
+}
+
+.category-list li {
+    margin-bottom: 5px;
+}
+
+.category-list a {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    color: #58636a;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    padding: 10px 11px;
+
+    border-radius: 7px;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+.category-list a:hover {
+    background: #edf4ff;
+
+    color: #2869e8;
+}
+
+
+/* =========================================================
+   EMPTY POSTS
+========================================================= */
+
+.empty-posts {
+    background: white;
+
+    border: 1px solid #e2e6e9;
+
+    border-radius: 12px;
+
+    padding: 50px 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, .04);
+}
+
+.empty-posts h2 {
+    margin-bottom: 8px;
+
+    color: #263238;
+}
+
+.empty-posts p {
+    color: #777;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+    margin-top: 65px;
+
+    padding: 32px 20px;
+
+    background: #202a2e;
+
+    color: #aeb6ba;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .home-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+
+        order: 2;
+    }
+
+    .post-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .site-header {
+        min-height: 60px;
+    }
+
+    .header-inner {
+        max-width: 94%;
+    }
+
+    .site-logo {
+        font-size: 20px;
+    }
+
+    .site-nav {
+        display: none;
+    }
+
+    .container {
+        width: 94%;
+
+        margin: 30px auto;
+    }
+
+    .page-title {
+        margin-bottom: 25px;
+    }
+
+    .page-title h1 {
+        font-size: 28px;
+    }
+
+    .post-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .post-card {
+        min-height: 260px;
+
+        padding: 20px;
+    }
+
+    .sidebar {
+        padding: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   POST DETAIL
+========================================================= */
+
+.post-detail {
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    background: white;
+
+    border: 1px solid #e2e6e9;
+
+    border-radius: 14px;
+
+    padding: 45px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, .06);
+}
+
+
+/* CATEGORY */
+
+.detail-category {
+    display: inline-block;
+
+    background: #edf4ff;
+
+    color: #2869e8;
+
+    padding: 7px 13px;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+}
+
+
+/* TITLE */
+
+.detail-title {
+    font-size: 38px;
+
+    line-height: 1.25;
+
+    color: #1d272c;
+
+    margin-bottom: 15px;
+}
+
+
+/* META */
+
+.detail-meta {
+    color: #929ba0;
+
+    font-size: 13px;
+
+    padding-bottom: 22px;
+
+    border-bottom: 1px solid #edf0f2;
+
+    margin-bottom: 30px;
+}
+
+
+/* CONTENT */
+
+.detail-content {
+    color: #424b50;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+}
+
+.detail-content p {
+    margin-bottom: 20px;
+}
+
+
+/* BACK BUTTON */
+
+.detail-back {
+    margin-top: 40px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #edf0f2;
+}
+
+.back-button {
+    display: inline-block;
+
+    background: #202a2e;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 10px 18px;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    transition: .25s;
+}
+
+.back-button:hover {
+    background: #2869e8;
+}
+
+
+
+
+
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7f8;
+    color: #333;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding-left: 22px;
+    padding-right: 22px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header {
+    background: #20282c;
+
+    color: white;
+
+    padding: 18px 0;
+
+    margin-bottom: 16px;
+}
+
+.site-header h1 {
+    font-size: 20px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================
+   POSTS GRID
+========================= */
+
+.posts {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 16px;
+
+    padding-top: 0;
+}
+
+
+/* =========================
+   POST CARD
+========================= */
+
+.post-card {
+    background: white;
+
+    border: 1px solid #d9dddf;
+
+    border-radius: 4px;
+
+    min-height: 110px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+.post-content {
+    padding: 14px;
+}
+
+
+.post-content h2 {
+    font-size: 17px;
+
+    font-weight: 500;
+
+    margin-bottom: 8px;
+
+    color: #222;
+}
+
+
+.post-content p {
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    color: #555;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================
+   READ MORE
+========================= */
+
+.read-more {
+    display: inline-block;
+
+    background: #2878ed;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    padding: 7px 12px;
+
+    border-radius: 4px;
+
+    transition: background 0.2s;
+}
+
+.read-more:hover {
+    background: #1765d1;
+}
+
+
+/* =========================
+   PAGINATION
+========================= */
+
+.pagination {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 16px;
+
+    margin-bottom: 10px;
+}
+
+.pagination span {
+    background: #eef0f1;
+
+    color: #555;
+
+    font-size: 12px;
+
+    padding: 7px 10px;
+
+    border-radius: 3px;
+}
+
+.pagination a {
+    color: #2878ed;
+
+    background: white;
+
+    border: 1px solid #d9dddf;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    padding: 7px 10px;
+
+    border-radius: 3px;
+}
+
+.pagination a:hover {
+    background: #2878ed;
+
+    color: white;
+}
+
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.categories {
+    border-top: 1px solid #cfd4d6;
+
+    margin-top: 8px;
+
+    padding-top: 14px;
+
+    padding-bottom: 30px;
+}
+
+.categories h2 {
+    font-size: 16px;
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+}
+
+.categories a {
+    display: block;
+
+    color: #555;
+
+    font-size: 13px;
+
+    text-decoration: none;
+
+    margin-bottom: 5px;
+}
+
+.categories a:hover {
+    color: #2878ed;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 850px) {
+
+    .posts {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .posts {
+        grid-template-columns: 1fr;
+    }
+
+    .site-header {
+        padding: 15px 0;
+    }
+
+    .site-header h1 {
+        font-size: 18px;
+    }
+}
+
+
+
+
+
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f7f8f8;
+
+    color: #333;
+
+    line-height: 1.5;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding-left: 22px;
+    padding-right: 22px;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+    width: 100%;
+
+    background: #20282c;
+
+    color: white;
+
+    border-bottom: 1px solid #171c1f;
+}
+
+
+.header-container {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 18px 22px;
+}
+
+
+.site-title {
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.2px;
+}
+
+
+.site-title:hover {
+    color: #dce5e8;
+}
+
+
+/* =========================================
+   POSTS SECTION
+========================================= */
+
+.posts-section {
+    padding-top: 16px;
+}
+
+
+.posts-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 16px;
+}
+
+
+/* =========================================
+   POST CARD
+========================================= */
+
+.post-card {
+    background: #ffffff;
+
+    border: 1px solid #d9dddf;
+
+    border-radius: 4px;
+
+    min-height: 185px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.post-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 16px rgba(0, 0, 0, 0.08);
+}
+
+
+.post-card-body {
+    padding: 13px 11px 14px 11px;
+}
+
+
+/* =========================================
+   CATEGORY
+========================================= */
+
+.post-category {
+    display: inline-block;
+
+    color: #666;
+
+    font-size: 11px;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================================
+   POST TITLE
+========================================= */
+
+.post-title {
+    color: #222;
+
+    font-size: 17px;
+
+    line-height: 1.3;
+
+    font-weight: 500;
+
+    margin-bottom: 7px;
+}
+
+
+/* =========================================
+   POST EXCERPT
+========================================= */
+
+.post-excerpt {
+    color: #555;
+
+    font-size: 13px;
+
+    line-height: 1.45;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   DATE
+========================================= */
+
+.post-date {
+    color: #999;
+
+    font-size: 11px;
+
+    margin-bottom: 9px;
+}
+
+
+/* =========================================
+   READ MORE
+========================================= */
+
+.read-more {
+    display: inline-block;
+
+    background: #2878ed;
+
+    color: white;
+
+    font-size: 13px;
+
+    line-height: 1;
+
+    padding: 8px 12px;
+
+    border-radius: 4px;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.read-more:hover {
+    background: #1765d1;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   NO POSTS
+========================================= */
+
+.no-posts {
+    grid-column: 1 / -1;
+
+    background: white;
+
+    border: 1px solid #ddd;
+
+    border-radius: 4px;
+
+    padding: 30px;
+
+    text-align: center;
+}
+
+
+.no-posts h2 {
+    font-size: 20px;
+
+    margin-bottom: 8px;
+}
+
+
+.no-posts p {
+    color: #777;
+}
+
+
+/* =========================================
+   PAGINATION
+========================================= */
+
+.pagination {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 16px;
+
+    margin-bottom: 10px;
+}
+
+
+.page-info {
+    display: inline-block;
+
+    background: #eef0f1;
+
+    color: #555;
+
+    border: 1px solid #e1e4e5;
+
+    border-radius: 3px;
+
+    font-size: 12px;
+
+    padding: 6px 9px;
+}
+
+
+.page-button {
+    display: inline-block;
+
+    background: white;
+
+    color: #2878ed;
+
+    border: 1px solid #d9dddf;
+
+    border-radius: 3px;
+
+    font-size: 12px;
+
+    padding: 6px 10px;
+
+    transition: .2s;
+}
+
+
+.page-button:hover {
+    background: #2878ed;
+
+    color: white;
+
+    border-color: #2878ed;
+}
+
+
+/* =========================================
+   CATEGORIES
+========================================= */
+
+.categories-section {
+    margin-top: 8px;
+
+    padding-top: 12px;
+
+    padding-bottom: 35px;
+
+    border-top: 1px solid #cfd4d6;
+}
+
+
+.categories-title {
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: #333;
+
+    margin-bottom: 8px;
+}
+
+
+.categories-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 5px 10px;
+}
+
+
+.category-link {
+    color: #555;
+
+    font-size: 13px;
+}
+
+
+.category-link:hover {
+    color: #2878ed;
+
+    text-decoration: underline;
+}
+
+
+.category-empty {
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   DETAIL PAGE
+========================================= */
+
+.detail-container {
+    padding-top: 25px;
+
+    padding-bottom: 50px;
+}
+
+
+.back-link {
+    display: inline-block;
+
+    color: #2878ed;
+
+    font-size: 14px;
+
+    margin-bottom: 18px;
+}
+
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   DETAIL ARTICLE
+========================================= */
+
+.post-detail {
+    background: white;
+
+    border: 1px solid #d9dddf;
+
+    border-radius: 5px;
+
+    padding: 30px;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+}
+
+
+.detail-category {
+    display: inline-block;
+
+    color: #2878ed;
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+
+.detail-title {
+    color: #222;
+
+    font-size: 34px;
+
+    font-weight: 600;
+
+    line-height: 1.25;
+
+    margin-bottom: 10px;
+}
+
+
+.detail-date {
+    color: #888;
+
+    font-size: 13px;
+
+    border-bottom: 1px solid #eee;
+
+    padding-bottom: 18px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   DETAIL CONTENT
+========================================= */
+
+.detail-content {
+    color: #333;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+}
+
+
+.detail-content p {
+    margin-bottom: 18px;
+}
+
+
+.detail-content h2 {
+    font-size: 24px;
+
+    margin-top: 25px;
+
+    margin-bottom: 12px;
+}
+
+
+.detail-content h3 {
+    font-size: 20px;
+
+    margin-top: 20px;
+
+    margin-bottom: 10px;
+}
+
+
+.detail-content ul,
+.detail-content ol {
+    margin-left: 25px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================
+   TAGS
+========================================= */
+
+.tags-section {
+    border-top: 1px solid #eee;
+
+    margin-top: 30px;
+
+    padding-top: 20px;
+}
+
+
+.tags-section h3 {
+    font-size: 15px;
+
+    margin-bottom: 10px;
+}
+
+
+.tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+
+.tag {
+    background: #eef4ff;
+
+    color: #2878ed;
+
+    border-radius: 4px;
+
+    padding: 5px 9px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   DETAIL BOTTOM
+========================================= */
+
+.detail-bottom {
+    max-width: 900px;
+
+    margin: 20px auto 0;
+}
+
+
+.back-button {
+    display: inline-block;
+
+    background: #2878ed;
+
+    color: white;
+
+    padding: 9px 14px;
+
+    border-radius: 4px;
+
+    font-size: 13px;
+}
+
+
+.back-button:hover {
+    background: #1765d1;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+    background: #20282c;
+
+    color: #bbb;
+
+    margin-top: 20px;
+}
+
+
+.site-footer .container {
+    padding-top: 20px;
+
+    padding-bottom: 20px;
+}
+
+
+.site-footer p {
+    font-size: 12px;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .posts-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+
+    .header-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+
+    .posts-grid {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+
+    .post-card {
+        min-height: auto;
+    }
+
+
+    .detail-title {
+        font-size: 27px;
+    }
+
+
+    .post-detail {
+        padding: 20px;
+    }
+
+
+    .pagination {
+        flex-wrap: wrap;
+    }
+
+}

@@ -1,0 +1,185 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{{ post.title }} - DjangoBlog</title>
+
+    <link rel="stylesheet"
+      href="{% static 'blog/css/style.css' %}">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="site-header">
+
+    <div class="header-container">
+
+        <a href="{% url 'post_list' %}"
+           class="site-title">
+
+            DjangoBlog
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="container detail-container">
+
+
+    <!-- BACK -->
+
+    <a href="{% url 'post_list' %}"
+       class="back-link">
+
+        ← Back to posts
+
+    </a>
+
+
+
+    <!-- POST DETAIL -->
+
+    <article class="post-detail">
+
+
+        <!-- CATEGORY -->
+
+        {% if post.category %}
+
+            <div class="detail-category">
+
+                {{ post.category.name }}
+
+            </div>
+
+        {% endif %}
+
+
+
+        <!-- TITLE -->
+
+        <h1 class="detail-title">
+
+            {{ post.title }}
+
+        </h1>
+
+
+
+        <!-- DATE -->
+
+        <div class="detail-date">
+
+            Published:
+            {{ post.created_at|date:"F d, Y" }}
+
+        </div>
+
+
+
+        <!-- CONTENT -->
+
+        <div class="detail-content">
+
+            {{ post.content|linebreaks }}
+
+        </div>
+
+
+
+        <!-- TAGS -->
+
+        {% if post.tags.all %}
+
+            <div class="tags-section">
+
+                <h3>
+                    Tags
+                </h3>
+
+
+                <div class="tags">
+
+                    {% for tag in post.tags.all %}
+
+                        <span class="tag">
+
+                            #{{ tag.name }}
+
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        {% endif %}
+
+
+
+    </article>
+
+
+
+    <!-- BACK BUTTON -->
+
+    <div class="detail-bottom">
+
+        <a href="{% url 'post_list' %}"
+           class="back-button">
+
+            ← Back to all posts
+
+        </a>
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <p>
+            © 2026 DjangoBlog
+        </p>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
