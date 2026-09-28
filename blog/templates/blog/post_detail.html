@@ -13,7 +13,7 @@
     <title>{{ post.title }} - DjangoBlog</title>
 
     <link rel="stylesheet"
-      href="{% static 'blog/css/style.css' %}">
+          href="{% static 'blog/css/style.css' %}">
 
 </head>
 
@@ -139,6 +139,31 @@
 
         {% endif %}
 
+
+
+        <!-- =========================
+             EDIT / DELETE BUTTONS
+        ========================= -->
+<div class="post-actions">
+
+    <a href="{% url 'post_update' post.slug %}"
+       class="action-btn edit-btn">
+
+        <span class="action-icon">✎</span>
+        Edit
+
+    </a>
+
+
+    <a href="{% url 'post_delete' post.slug %}"
+       class="action-btn delete-btn">
+
+        <span class="action-icon">🗑</span>
+        Delete
+
+    </a>
+
+</div>
 
 
     </article>
