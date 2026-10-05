@@ -38,6 +38,21 @@ class Post(models.Model):
 
     content = models.TextField()
 
+    # Cover image
+    cover_image = models.ImageField(
+        upload_to="post_covers/",
+        blank=True,
+        null=True
+    )
+
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    updated_at = models.DateTimeField(
+        auto_now=True
+    )
+
     category = models.ForeignKey(
         Category,
         on_delete=models.SET_NULL,
@@ -50,14 +65,6 @@ class Post(models.Model):
         Tag,
         blank=True,
         related_name="posts"
-    )
-
-    created_at = models.DateTimeField(
-        auto_now_add=True
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True
     )
 
     def save(self, *args, **kwargs):

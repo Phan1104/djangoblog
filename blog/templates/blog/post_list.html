@@ -12,8 +12,8 @@
 
     <title>DjangoBlog</title>
 
-   <link rel="stylesheet"
-      href="{% static 'blog/css/style.css' %}">
+    <link rel="stylesheet"
+          href="{% static 'blog/css/style.css' %}">
 
 </head>
 
@@ -31,7 +31,9 @@
 
         <a href="{% url 'post_list' %}"
            class="site-title">
+
             DjangoBlog
+
         </a>
 
     </div>
@@ -63,6 +65,30 @@
             <article class="post-card">
 
 
+                <!-- =========================
+                     COVER IMAGE
+                ========================= -->
+
+                {% if post.cover_image %}
+
+                    <img
+                        src="{{ post.cover_image.url }}"
+                        alt="{{ post.title }}"
+                        class="post-image"
+                    >
+
+                {% else %}
+
+                    <div class="post-image-placeholder">
+
+                        <span>No Image</span>
+
+                    </div>
+
+                {% endif %}
+
+
+
                 <div class="post-card-body">
 
 
@@ -71,7 +97,9 @@
                     {% if post.category %}
 
                         <div class="post-category">
+
                             {{ post.category.name }}
+
                         </div>
 
                     {% endif %}
@@ -204,8 +232,11 @@
 
     <section class="categories-section">
 
+
         <h2 class="categories-title">
+
             Categories
+
         </h2>
 
 
@@ -213,6 +244,7 @@
 
 
             {% for post in object_list %}
+
 
                 {% if post.category %}
 
@@ -225,16 +257,20 @@
 
                 {% endif %}
 
+
             {% empty %}
 
                 <span class="category-empty">
+
                     No categories.
+
                 </span>
 
             {% endfor %}
 
 
         </div>
+
 
     </section>
 
@@ -252,7 +288,9 @@
     <div class="container">
 
         <p>
+
             © 2026 DjangoBlog
+
         </p>
 
     </div>
