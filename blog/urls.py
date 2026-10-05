@@ -12,54 +12,63 @@ from .views import (
 
 
 urlpatterns = [
-
-    # Read - Post List
+    # =========================
+    # POST LIST
+    # =========================
     path(
         "",
         PostListView.as_view(),
-        name="post_list"
+        name="post_list",
     ),
 
-    # Create - Create new Post
+    # =========================
+    # CREATE
+    # =========================
     path(
-        "posts/new/",
+        "post/create/",
         PostCreateView.as_view(),
-        name="post_create"
+        name="post_create",
     ),
 
-    # Update - Edit Post
+    # =========================
+    # DETAIL
+    # =========================
     path(
-        "posts/<slug:slug>/edit/",
-        PostUpdateView.as_view(),
-        name="post_update"
-    ),
-
-    # Delete - Delete Post
-    path(
-        "posts/<slug:slug>/delete/",
-        PostDeleteView.as_view(),
-        name="post_delete"
-    ),
-
-    # Read - Post Detail
-    path(
-        "posts/<slug:slug>/",
+        "post/<slug:slug>/",
         PostDetailView.as_view(),
-        name="post_detail"
+        name="post_detail",
     ),
 
-    # About
+    # =========================
+    # UPDATE
+    # =========================
+    path(
+        "post/<slug:slug>/edit/",
+        PostUpdateView.as_view(),
+        name="post_update",
+    ),
+
+    # =========================
+    # DELETE
+    # =========================
+    path(
+        "post/<slug:slug>/delete/",
+        PostDeleteView.as_view(),
+        name="post_delete",
+    ),
+
+    # =========================
+    # OTHER PAGES
+    # =========================
     path(
         "about/",
         about,
-        name="about"
+        name="about",
     ),
 
-    # Contact
     path(
         "contact/",
         contact,
-        name="contact"
+        name="contact",
     ),
-
 ]

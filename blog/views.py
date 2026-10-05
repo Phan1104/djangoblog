@@ -67,8 +67,8 @@ class PostUpdateView(UpdateView):
 class PostDeleteView(DeleteView):
     model = Post
     template_name = "blog/post_confirm_delete.html"
+    context_object_name = "post"
     success_url = reverse_lazy("post_list")
-
 
 def about(request):
     return render(
