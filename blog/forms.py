@@ -58,3 +58,33 @@ class PostForm(forms.ModelForm):
             )
 
         return title
+    
+    
+# Clean cover image
+    def clean_cover_image(self):
+        image = self.cleaned_data.get("cover_image")
+
+        if image:
+            # Kiểm tra dung lượng tối đa 5MB
+            if image.size > 5 * 1024 * 1024:
+                raise forms.ValidationError(
+                    "Image file too large (max 5MB)."
+                )
+               # Các định dạng được phép
+            valid_extensions = [
+                ".jpg",
+                ".jpeg",
+                ".png",
+                ".webp",
+            ]
+
+            # Kiểm tra đuôi file
+            if not any(
+                image.name.lower().endswith(ext)
+                for ext in valid_extensions
+            ):
+                raise forms.ValidationError(
+                    "Unsupported file type. Use JPG, PNG, or WEBP."
+                )
+
+        return image

@@ -373,4 +373,26 @@
 
 </div>
 
+<!-- Image Preview -->
+<script>
+    const fileInput = document.querySelector('input[type="file"]');
+
+          if (fileInput) {
+            fileInput.addEventListener('change', function(event) {
+
+              const preview = document.getElementById('preview');
+              const file = event.target.files[0];
+
+          if (file) {
+              preview.src = URL.createObjectURL(file);
+              preview.style.display = 'block';
+                } else {
+            preview.style.display = 'none';
+            }
+
+            });
+        }
+</script>
+
+
 {% endblock %}
